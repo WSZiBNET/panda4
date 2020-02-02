@@ -60,9 +60,17 @@ namespace panda4.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(rezerwacjaModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var komputery = await _context.KomputerModel.ToListAsync();
+                if (komputery.Any(x => x.KomputerID == rezerwacjaModel.KomputerID))
+                {
+                    _context.Add(rezerwacjaModel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewBag.Message = "Podane id komputera nie istnieje";
+                }
             }
             return View(rezerwacjaModel);
         }
