@@ -15,5 +15,7 @@ namespace panda4.Models
         [ForeignKey("Komputer")]
         public int KomputerID { get; set; }
         public int Ocena { get; set; }
+
+      //  public virtual ICollection<KomputerModel> KomputerID { get; set; }
     }
 }

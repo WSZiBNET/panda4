@@ -25,6 +25,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @*@Html.DisplayFor(SelectList(@ViewBag.Komputer, "Id"))*@
                 @Html.DisplayFor(modelItem => item.KomputerID)
             </td>
             <td>

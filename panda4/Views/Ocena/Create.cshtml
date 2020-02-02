@@ -13,8 +13,15 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+
                 <label asp-for="KomputerID" class="control-label"></label>
-                <input asp-for="KomputerID" class="form-control" />
+                @*<input asp-for="KomputerID" class="form-control" />*@
+                <select asp-for="KomputerID"
+                    class="form-control"
+                    asp-items="@(new SelectList(ViewBag.ListOfComputers,"Id"))"></select>
+
+
+               
                 <span asp-validation-for="KomputerID" class="text-danger"></span>
             </div>
             <div class="form-group">

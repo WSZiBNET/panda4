@@ -21,6 +21,8 @@ namespace panda4.Controllers
         // GET: Ocena
         public async Task<IActionResult> Index()
         {
+
+
             return View(await _context.Ocena.ToListAsync());
         }
 
@@ -49,7 +51,17 @@ namespace panda4.Controllers
         // GET: Ocena/Create
         public IActionResult Create()
         {
-            return View();
+            List<KomputerModel> komputerList = new List<KomputerModel>();
+            komputerList = (from komputerID in _context.KomputerModel
+                           select komputerID).ToList();
+
+            komputerList.Insert(0, new KomputerModel {  KomputerID = 0, Model = "select" });
+
+          //  var komputers = _context.KomputerModel.ToList();
+            ViewBag.ListOfComputers = komputerList;
+
+
+                   return View();
         }
 
         // POST: Ocena/Create
