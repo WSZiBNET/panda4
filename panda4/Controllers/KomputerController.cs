@@ -19,10 +19,23 @@ namespace panda4.Controllers
         }
 
         // GET: Komputer
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            
+            ViewData["CurrentFilter"] = searchString;
+            var komputerModel = from k in _context.KomputerModel
+                                select k;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                komputerModel = komputerModel.Where(k => k.Model.Contains(searchString)
+                                       || k.Producent.Contains(searchString));
+            }
+
+
+
+
             var Komputery = await _context.KomputerModel.ToListAsync();
-            foreach (var item in Komputery)
+            foreach (var item in komputerModel)
             {
                 double sredniaOcena = 0;
                 int suma = 0;
@@ -40,7 +53,8 @@ namespace panda4.Controllers
                 }
                 item.sredniaOcena = sredniaOcena;
             }
-            return View(Komputery);
+            return View(Komputery); 
+           // return View(await komputerModel.AsNoTracking().ToListAsync());
         }
 
         // GET: Komputer/Details/5
