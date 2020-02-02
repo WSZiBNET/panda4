@@ -45,9 +45,21 @@ namespace panda4.Controllers
         // GET: Rezerwacja/Create
         public IActionResult Create(int id)
         {
-            var rezerwacjaModel = new RezerwacjaModel();
-            rezerwacjaModel.KomputerID = id;
-            return View(rezerwacjaModel);                    
+            List<KomputerModel> komputerList = new List<KomputerModel>();
+            komputerList = (from KomputerID in _context.KomputerModel
+                            select KomputerID).ToList();
+
+            komputerList.Insert(0, new KomputerModel { KomputerID = 0, Model = "select" });
+
+            ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");
+            return View();
+
+
+
+
+            //var rezerwacjaModel = new RezerwacjaModel();
+            //rezerwacjaModel.KomputerID = id;
+            //return View(rezerwacjaModel);                    
         }
 
 

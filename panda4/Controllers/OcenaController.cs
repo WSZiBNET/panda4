@@ -52,16 +52,26 @@ namespace panda4.Controllers
         public IActionResult Create()
         {
             List<KomputerModel> komputerList = new List<KomputerModel>();
-            komputerList = (from komputerID in _context.KomputerModel
-                           select komputerID).ToList();
+            komputerList = (from KomputerID in _context.KomputerModel
+                            select KomputerID).ToList();
 
-            komputerList.Insert(0, new KomputerModel {  KomputerID = 0, Model = "select" });
+            komputerList.Insert(0, new KomputerModel { KomputerID = 0, Model = "select" });
+      
+          ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");
 
-          //  var komputers = _context.KomputerModel.ToList();
-            ViewBag.ListOfComputers = komputerList;
+            //ViewBag.ListOfComputers = komputerList.Select(x =>
+            //                      new SelectListItem()
+            //                      {
+            //                          Text = x.KomputerID
+            //                      });
 
 
-                   return View();
+
+            //ViewBag.ListOfComputers = komputerList;
+            // var komputers = _context.KomputerModel.ToList();
+            //  ViewBag.ListOfComputers = (from KomputerID in _context.KomputerModel
+            // select KomputerID).ToList();
+            return View();
         }
 
         // POST: Ocena/Create

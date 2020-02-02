@@ -18,7 +18,7 @@
                 @*<input asp-for="KomputerID" class="form-control" />*@
                 <select asp-for="KomputerID"
                     class="form-control"
-                    asp-items="@(new SelectList(ViewBag.ListOfComputers,"Id"))"></select>
+                    asp-items="@(ViewBag.ListOfComputers)"></select>
 
 
                
