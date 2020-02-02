@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<panda4.Models.KomputerModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Nasze komputery";
 }
 
-<h2>Index</h2>
+<h2>Nasze komputery</h2>
 
 
 <p>
@@ -45,9 +45,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PlytaGlowna)
             </th>
-            <th>
+            @*<th>
                 Ocena
-            </th>
+            </th>*@
         </tr>
     </thead>
     <tbody>
@@ -75,10 +75,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PlytaGlowna)
             </td>
-            <td>
+            @*<td>
               
                  @Html.DisplayFor(modelItem => item.sredniaOcena)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.KomputerID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.KomputerID">Details</a> |

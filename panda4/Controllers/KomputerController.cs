@@ -34,13 +34,23 @@ namespace panda4.Controllers
 
 
 
+        
+           return View(await komputerModel.AsNoTracking().ToListAsync());
+        }
+
+
+        // GET: Ocena
+        public async Task<IActionResult> IndexRanking()
+        {
+
+
             var Komputery = await _context.KomputerModel.ToListAsync();
-            foreach (var item in komputerModel)
+            foreach (var item in Komputery)
             {
                 double sredniaOcena = 0;
                 int suma = 0;
                 int ilosc = 0;
-               foreach (var ocena in _context.Ocena)
+                foreach (var ocena in _context.Ocena)
                 {
                     if (ocena.KomputerID == item.KomputerID)
                     {
@@ -49,13 +59,16 @@ namespace panda4.Controllers
 
                         sredniaOcena = suma / ilosc;
                     }
-                    
+
                 }
                 item.sredniaOcena = sredniaOcena;
             }
-            return View(Komputery); 
-           // return View(await komputerModel.AsNoTracking().ToListAsync());
+            return View(Komputery);
+
+         
         }
+
+
 
         // GET: Komputer/Details/5
         public async Task<IActionResult> Details(int? id)
