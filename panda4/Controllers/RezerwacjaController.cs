@@ -43,10 +43,13 @@ namespace panda4.Controllers
         }
 
         // GET: Rezerwacja/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            return View();
+            var rezerwacjaModel = new RezerwacjaModel();
+            rezerwacjaModel.KomputerID = id;
+            return View(rezerwacjaModel);                    
         }
+
 
         // POST: Rezerwacja/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -148,5 +151,15 @@ namespace panda4.Controllers
         {
             return _context.Rezerwacja.Any(e => e.RezerwacjaID == id);
         }
+
+        //public async Task<IActionResult> CreateKomputer(int id)
+        //{           
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+            
+        //}
     }
 }

@@ -82,7 +82,8 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.KomputerID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.KomputerID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.KomputerID">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.KomputerID">Delete</a> |
+                <a asp-action="Create" asp-controller="Rezerwacja" asp-route-id="@item.KomputerID">Rezerwuj</a> 
             </td>
         </tr>
         }
