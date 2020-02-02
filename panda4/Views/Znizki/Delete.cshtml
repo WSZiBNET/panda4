@@ -1,0 +1,33 @@
+﻿@model panda4.Models.ZnizkiModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ZnizkiModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UzytkownikId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UzytkownikId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Znizka)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Znizka)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ZnizkiId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

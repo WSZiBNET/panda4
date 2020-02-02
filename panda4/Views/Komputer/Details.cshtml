@@ -1,0 +1,60 @@
+﻿@model panda4.Models.KomputerModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KomputerModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Producent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Producent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataProdukcji)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataProdukcji)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KartaGraficzna)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KartaGraficzna)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Procesor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Procesor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PlytaGlowna)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PlytaGlowna)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.KomputerID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

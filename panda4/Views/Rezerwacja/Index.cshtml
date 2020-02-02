@@ -1,0 +1,59 @@
+﻿@model IEnumerable<panda4.Models.RezerwacjaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KomputerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UzytkownikID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRozpoczecia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataZakonczenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPrzedluzona)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KomputerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UzytkownikID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRozpoczecia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataZakonczenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPrzedluzona)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RezerwacjaID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RezerwacjaID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RezerwacjaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

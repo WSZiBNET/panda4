@@ -1,0 +1,48 @@
+﻿@model panda4.Models.RezerwacjaModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RezerwacjaModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KomputerID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KomputerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UzytkownikID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UzytkownikID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRozpoczecia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataRozpoczecia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZakonczenia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataZakonczenia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrzedluzona)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataPrzedluzona)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RezerwacjaID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

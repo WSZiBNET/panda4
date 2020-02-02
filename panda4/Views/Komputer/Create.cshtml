@@ -1,0 +1,63 @@
+﻿@model panda4.Models.KomputerModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>KomputerModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producent" class="control-label"></label>
+                <input asp-for="Producent" class="form-control" />
+                <span asp-validation-for="Producent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataProdukcji" class="control-label"></label>
+                <input asp-for="DataProdukcji" class="form-control" />
+                <span asp-validation-for="DataProdukcji" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KartaGraficzna" class="control-label"></label>
+                <input asp-for="KartaGraficzna" class="form-control" />
+                <span asp-validation-for="KartaGraficzna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Procesor" class="control-label"></label>
+                <input asp-for="Procesor" class="form-control" />
+                <span asp-validation-for="Procesor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlytaGlowna" class="control-label"></label>
+                <input asp-for="PlytaGlowna" class="form-control" />
+                <span asp-validation-for="PlytaGlowna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

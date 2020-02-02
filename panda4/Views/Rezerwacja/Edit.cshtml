@@ -1,0 +1,54 @@
+﻿@model panda4.Models.RezerwacjaModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>RezerwacjaModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RezerwacjaID" />
+            <div class="form-group">
+                <label asp-for="KomputerID" class="control-label"></label>
+                <input asp-for="KomputerID" class="form-control" />
+                <span asp-validation-for="KomputerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UzytkownikID" class="control-label"></label>
+                <input asp-for="UzytkownikID" class="form-control" />
+                <span asp-validation-for="UzytkownikID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataRozpoczecia" class="control-label"></label>
+                <input asp-for="DataRozpoczecia" class="form-control" />
+                <span asp-validation-for="DataRozpoczecia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataZakonczenia" class="control-label"></label>
+                <input asp-for="DataZakonczenia" class="form-control" />
+                <span asp-validation-for="DataZakonczenia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataPrzedluzona" class="control-label"></label>
+                <input asp-for="DataPrzedluzona" class="form-control" />
+                <span asp-validation-for="DataPrzedluzona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

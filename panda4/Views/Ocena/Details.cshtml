@@ -1,0 +1,30 @@
+﻿@model panda4.Models.OcenaModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OcenaModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KomputerID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KomputerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ocena)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ocena)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.OcenaID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

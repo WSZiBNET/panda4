@@ -1,0 +1,63 @@
+﻿@model panda4.Models.KomputerModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>KomputerModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Producent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Producent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataProdukcji)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataProdukcji)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KartaGraficzna)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KartaGraficzna)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Procesor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Procesor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PlytaGlowna)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PlytaGlowna)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="KomputerID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
