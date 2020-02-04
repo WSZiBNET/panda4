@@ -56,8 +56,18 @@ namespace panda4.Controllers
                             select KomputerID).ToList();
 
             komputerList.Insert(0, new KomputerModel { KomputerID = 0, Model = "select" });
-      
-          ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");
+
+            ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");
+
+            List<int> ocenyList = new List<int>();
+            for (int i = 1; i <= 10; i++)
+            {
+                ocenyList.Add(i);
+            }
+
+            ViewBag.ListOfOceny = new SelectList(ocenyList, "Ocena");
+
+
 
             //ViewBag.ListOfComputers = komputerList.Select(x =>
             //                      new SelectListItem()
