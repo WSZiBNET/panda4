@@ -49,15 +49,15 @@ namespace panda4.Controllers
         }
 
         // GET: Ocena/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
             List<KomputerModel> komputerList = new List<KomputerModel>();
-            komputerList = (from KomputerID in _context.KomputerModel
-                            select KomputerID).ToList();
+            //komputerList = (from KomputerID in _context.KomputerModel
+            //                select KomputerID).ToList();
 
-            komputerList.Insert(0, new KomputerModel { KomputerID = 0, Model = "select" });
+            //komputerList.Insert(0, new KomputerModel { KomputerID = 0, Model = "select" });
 
-            ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");
+            //ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");
 
             List<int> ocenyList = new List<int>();
             for (int i = 1; i <= 10; i++)
@@ -67,21 +67,22 @@ namespace panda4.Controllers
 
             ViewBag.ListOfOceny = new SelectList(ocenyList, "Ocena");
 
+            if (id != null)
+            {
+                KomputerModel selectedComputer = _context.KomputerModel.FirstOrDefault(m => m.KomputerID == id);
+                komputerList.Insert(0, selectedComputer);
+                ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");                
+            }
 
-
-            //ViewBag.ListOfComputers = komputerList.Select(x =>
-            //                      new SelectListItem()
-            //                      {
-            //                          Text = x.KomputerID
-            //                      });
-
-
-
-            //ViewBag.ListOfComputers = komputerList;
-            // var komputers = _context.KomputerModel.ToList();
-            //  ViewBag.ListOfComputers = (from KomputerID in _context.KomputerModel
-            // select KomputerID).ToList();
+            else
+            {
+                komputerList = (from KomputerID in _context.KomputerModel
+                                select KomputerID).ToList();
+                komputerList.Insert(0, new KomputerModel { KomputerID = 0, Model = "select" });
+                ViewBag.ListOfComputers = new SelectList(komputerList, "KomputerID", "Model");                
+            }
             return View();
+           
         }
 
         // POST: Ocena/Create
